@@ -38,11 +38,11 @@ SystemTray::Applet::Win32 - Windows support for SystemTray::Applet
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 =head1 SYNOPSIS
@@ -93,6 +93,10 @@ sub init
         {
             $self->{"win32"}->{"timer"} = $self->{"win32"}->{"window"}->AddTimer( "_Timerd$rand" , $self->{"frequency"} * 1000 );
         }
+	else
+	{
+            $self->{"win32"}->{"timer"} = $self->{"win32"}->{"window"}->AddTimer( "_Timerd$rand" , 0 );
+	}
         
 	return $self;
 }
